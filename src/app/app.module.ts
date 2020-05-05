@@ -9,6 +9,10 @@ import { WhatsNewComponent } from './whats-new/whats-new.component';
 import { AboutAndContactComponent } from './about-and-contact/about-and-contact.component';
 import { ContactComponent } from './contact/contact.component';
 import { SmallAboutComponent } from './small-about/small-about.component';
+import { RouterModule } from '@angular/router';
+import { ContentComponent } from './content/content.component';
+import { GalleryComponent } from './gallery/gallery.component';
+
 
 @NgModule({
   declarations: [
@@ -18,14 +22,22 @@ import { SmallAboutComponent } from './small-about/small-about.component';
     WhatsNewComponent,
     AboutAndContactComponent,
     ContactComponent,
-    SmallAboutComponent
+    SmallAboutComponent,
+    ContentComponent,
+    GalleryComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot([
+      {path: '', component: ContentComponent},
+      {path: 'gallery', component: GalleryComponent}
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  
+ }
