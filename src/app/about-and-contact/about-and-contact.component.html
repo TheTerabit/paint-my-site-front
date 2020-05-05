@@ -1,0 +1,31 @@
+<section id="aboutAndContact">
+    <div class="social_column">
+        <h3>About Me</h3>
+        <p>{{user.aboutMe}}</p>
+        <h3>Contact</h3>
+        <ul class="icons">
+            <li><a href="#" class="icon fa-twitter"><span class="label"><img src="https://image.flaticon.com/icons/svg/483/483947.svg">{{user.phoneNumber}}</span></a></li>
+            <li><a href="#" class="icon fa-facebook"><span class="label"><img src="https://image.flaticon.com/icons/svg/561/561188.svg">{{user.email}}</span></a></li>
+        </ul>
+    </div>
+    <div class="column">
+        <h3>Get in Touch</h3>
+        <form action="#" method="post">
+            <div class="field half first">
+                <label for="name">Name</label>
+                <input name="name" id="name" type="text" placeholder="Name">
+            </div>
+            <div class="field half">
+                <label for="email">Email</label>
+                <input name="email" id="email" type="email" placeholder="Email">
+            </div>
+            <div class="field">
+                <label for="message">Message</label>
+                <textarea name="message" id="message" rows="6" placeholder="Message"></textarea>
+            </div>
+            <ul class="actions">
+                <li><input value="Send Message" class="button" type="submit"></li>
+            </ul>
+        </form>
+    </div>
+</section>

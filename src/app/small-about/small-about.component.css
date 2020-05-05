@@ -1,0 +1,12 @@
+
+.social_column {
+  padding: 40px;
+  background-color: #e6e6e6;
+  max-width: 50%;
+  flex:1;
+  align-self: stretch;
+}
+h3 {
+  font-size: 13pt;
+  font-weight: bold;
+}
