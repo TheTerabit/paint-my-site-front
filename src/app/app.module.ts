@@ -12,6 +12,8 @@ import { SmallAboutComponent } from './small-about/small-about.component';
 import { RouterModule } from '@angular/router';
 import { ContentComponent } from './content/content.component';
 import { GalleryComponent } from './gallery/gallery.component';
+import { ImagesComponent } from './images/images.component';
+import { CategoryMenuComponent } from './category-menu/category-menu.component';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { GalleryComponent } from './gallery/gallery.component';
     ContactComponent,
     SmallAboutComponent,
     ContentComponent,
-    GalleryComponent
+    GalleryComponent,
+    ImagesComponent,
+    CategoryMenuComponent
   ],
   imports: [
     BrowserModule,

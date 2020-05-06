@@ -4,15 +4,7 @@
             <header class="special">
                 <h2>What's New</h2>
             </header>
-            <div class="images_wrapper">
-            <div class="images" *ngFor="let project of projects">
-                <a href={{project?.photos[0].url}}>
-                <div class="media" style="background-image: url({{project?.photos[0].url}}); background-size: cover; background-position:center;">
-                </div>
-            </a>
-                
-            </div>
-        </div>
+            <app-images [projects]="projects"></app-images>
             <footer>
                 <a routerLink="/gallery" routerLinkActive="active" class="button big">Full Gallery</a>
             </footer>
