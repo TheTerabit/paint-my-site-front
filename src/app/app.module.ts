@@ -14,6 +14,7 @@ import { ContentComponent } from './content/content.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { ImagesComponent } from './images/images.component';
 import { CategoryMenuComponent } from './category-menu/category-menu.component';
+import { ProjectComponent } from './project/project.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { CategoryMenuComponent } from './category-menu/category-menu.component';
     ContentComponent,
     GalleryComponent,
     ImagesComponent,
-    CategoryMenuComponent
+    CategoryMenuComponent,
+    ProjectComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +38,8 @@ import { CategoryMenuComponent } from './category-menu/category-menu.component';
     HttpClientModule,
     RouterModule.forRoot([
       {path: '', component: ContentComponent},
-      {path: 'gallery', component: GalleryComponent}
+      {path: 'gallery', component: GalleryComponent},
+      {path: 'gallery/:projectName', component: ProjectComponent}
     ])
   ],
   providers: [],
