@@ -15,7 +15,11 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { ImagesComponent } from './images/images.component';
 import { CategoryMenuComponent } from './category-menu/category-menu.component';
 import { ProjectComponent } from './project/project.component';
-
+import { RestapiService } from './restapi.service';
+import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { StorageServiceModule } from 'ngx-webstorage-service';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -30,19 +34,25 @@ import { ProjectComponent } from './project/project.component';
     GalleryComponent,
     ImagesComponent,
     CategoryMenuComponent,
-    ProjectComponent
+    ProjectComponent,
+    LoginComponent,
+    DashboardComponent
   ],
   imports: [
+    StorageServiceModule,
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     RouterModule.forRoot([
       {path: '', component: ContentComponent},
       {path: 'gallery', component: GalleryComponent},
-      {path: 'gallery/:projectName', component: ProjectComponent}
+      {path: 'gallery/:projectName', component: ProjectComponent},
+      {path: 'login', component: LoginComponent},
+      {path: 'dashboard', component: DashboardComponent}
     ])
   ],
-  providers: [],
+  providers: [RestapiService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
