@@ -1,1 +1,31 @@
-<p>dashboard works!</p>
+<div class="page-wrap">
+    <div class="sidenav">
+        <app-side-navbar [current]="current"></app-side-navbar>
+    </div>
+    <div class="dashboard">
+        <h1>Dashboard</h1>
+        <div class = "user_settings">
+            <h1>User settings</h1>
+            <div class="form_image_container">
+                <form id="user_form">
+                    <label for="fname">Name: </label>
+                    <input type="text" id="fname" name="fname" [(ngModel)]="user.name"><br>
+                    <label for="lname">Surname: </label>
+                    <input type="text" id="lname" name="lname" [(ngModel)]="user.surname"><br>
+                    <label for="lname">Job title: </label>
+                    <input type="text" id="job" name="job" [(ngModel)]="user.jobTitle"><br>
+                    <label for="lname">E-mail: </label>
+                    <input type="text" id="email" name="email" [(ngModel)]="user.email"><br>
+                    <label for="lname">Phone number: </label>
+                    <input type="text" id="phone" name="phone" [(ngModel)]="user.phoneNumber"><br>
+                    <label for="lname">Profile picture url: </label>
+                    <input type="text" id="profile" name="profile" [(ngModel)]="user.profilePictureUrl"><br>
+                    <label for="lname">About me: </label>
+                    <textarea name="comment" form="user_form" [(ngModel)]="user.aboutMe"></textarea><br>
+                    <input type="submit" value="Update personal data" (click)="updateUser()">
+                </form>
+                <img src={{user.profilePictureUrl}} width="500px">
+            </div>
+        </div>
+    </div>
+</div>
