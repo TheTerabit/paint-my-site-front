@@ -13,10 +13,13 @@ export class DashboardComponent implements OnInit {
 
   @Input()
   current: string = "dashboard";
-  
+  newCategory: NewCategory = new NewCategory();
   user: User = new User();
   logged: boolean = false;
   changedUser: User;
+  categories: Category[];
+  projects: Project[];
+  photos: Photo[];
 
   constructor(private service: RestapiService,  @Inject(LOCAL_STORAGE) private storage: StorageService, private router: Router) { }
 
@@ -26,8 +29,20 @@ export class DashboardComponent implements OnInit {
     else {
       this.service.getUser().subscribe(data => {
         this.user = data;
-        this.changedUser = data;
       });
+
+      this.service.getCategories().subscribe(data => {
+        this.categories = data;
+      });
+
+      this.service.getProjects().subscribe(data => {
+        this.projects = data;
+      });
+
+      this.service.getPhotos().subscribe(data => {
+        this.photos = data;
+      });
+
     }
   }
   updateUser() {
@@ -36,6 +51,41 @@ export class DashboardComponent implements OnInit {
         console.log("success");
       });
   }
+
+  getCategories() {
+    this.service.getCategories().subscribe(data => {
+      this.categories = data;
+      this.newCategory = new NewCategory();
+    });
+  }
+
+  createCategory(category: Category) {
+    category.id=null;
+    category.projects=null;
+    console.log(category);
+    this.service.createCategory(category).subscribe(data =>
+      {
+        console.log("success");
+        this.getCategories();
+      });
+  }
+
+  updateCategory(category: Category) {
+    this.service.updateCategory(category).subscribe(data =>
+      {
+        console.log("success");
+        this.getCategories();
+      });
+  }
+  deleteCategory(id: number) {
+    this.service.deleteCategory(id).subscribe(error =>
+      {
+        console.log(error);
+        this.getCategories();
+      });
+  }
+
+
 
 }
 
@@ -47,4 +97,30 @@ class User {
   phoneNumber: string;
   email: string;
   profilePictureUrl: string;
+}
+class Category {
+  id: number;
+  name: string;
+  description: string;
+  photoUrl: string;
+  projects: Project[];
+}
+class NewCategory {
+  name: string;
+  description: string;
+  photoUrl: string;
+}
+interface Project {
+id: number;
+name: string;
+description: string;
+photos: Photo[];
+categoryId: number;
+}
+
+interface Photo {
+id: number;
+url: string;
+orderInProject: number;
+projectId: number;
 }

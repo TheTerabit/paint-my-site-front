@@ -3,29 +3,92 @@
         <app-side-navbar [current]="current"></app-side-navbar>
     </div>
     <div class="dashboard">
-        <h1>Dashboard</h1>
+        <div class="margin"><div class="caption"> Dashboard</div></div>
         <div class = "user_settings">
-            <h1>User settings</h1>
+            <h3>User settings</h3>
             <div class="form_image_container">
                 <form id="user_form">
-                    <label for="fname">Name: </label>
-                    <input type="text" id="fname" name="fname" [(ngModel)]="user.name"><br>
-                    <label for="lname">Surname: </label>
-                    <input type="text" id="lname" name="lname" [(ngModel)]="user.surname"><br>
-                    <label for="lname">Job title: </label>
-                    <input type="text" id="job" name="job" [(ngModel)]="user.jobTitle"><br>
-                    <label for="lname">E-mail: </label>
-                    <input type="text" id="email" name="email" [(ngModel)]="user.email"><br>
-                    <label for="lname">Phone number: </label>
-                    <input type="text" id="phone" name="phone" [(ngModel)]="user.phoneNumber"><br>
-                    <label for="lname">Profile picture url: </label>
-                    <input type="text" id="profile" name="profile" [(ngModel)]="user.profilePictureUrl"><br>
-                    <label for="lname">About me: </label>
-                    <textarea name="comment" form="user_form" [(ngModel)]="user.aboutMe"></textarea><br>
-                    <input type="submit" value="Update personal data" (click)="updateUser()">
+                    <div class="row"> 
+                        <label for="fname">Name: </label>
+                        <input type="text" id="fname" name="fname" [(ngModel)]="user.name">
+                    </div>
+                    <div class="row">
+                        <label for="lname">Surname: </label>
+                        <input type="text" id="lname" name="lname" [(ngModel)]="user.surname">
+                    </div>
+                    <div class="row">
+                        <label for="lname">Job title: </label>
+                        <input type="text" id="job" name="job" [(ngModel)]="user.jobTitle">
+                    </div>
+                    <div class="row">
+                        <label for="lname">E-mail: </label>
+                        <input type="text" id="email" name="email" [(ngModel)]="user.email">
+                    </div>
+                    <div class="row">
+                        <label for="lname">Phone number: </label>
+                        <input type="text" id="phone" name="phone" [(ngModel)]="user.phoneNumber">
+                    </div>
+                    <div class="row">
+                        <label for="lname">Profile picture url: </label>
+                        <input type="text" id="profile" name="profile" [(ngModel)]="user.profilePictureUrl">
+                    </div>
+                    <div class="row">
+                        <label for="lname">About me: </label>
+                        <textarea name="comment" form="user_form" [(ngModel)]="user.aboutMe"></textarea>
+                    </div>
+                    <div class="row">
+                        <input class="update_user_button" type="submit" value="Update personal data" (click)="updateUser()">
+                    </div>
                 </form>
                 <img src={{user.profilePictureUrl}} width="500px">
             </div>
+        </div>
+        <div class="category_settings">
+            <h3>Category settings</h3>
+            <table>
+                <ng-container>
+                    <tr>
+                        <td class="uneditable">
+                            <div class="cell">
+                                ID
+                            </div>
+                        </td>
+                        <td class="editable">
+                            <input class="editable_cell" type="text" id="newCategoryName" name="newName" required ngDefaultControl [(ngModel)]="newCategory.name" placeholder="Category name">
+                        </td>
+                        <td class="editable">
+                            <input class="editable_cell" type="text" id="newCategoryDescription" name="newDescription" ngDefaultControl [(ngModel)]="newCategory.description" placeholder="Category description">
+                        </td>
+                        <td>
+                            <button (click)="createCategory(newCategory)">Create new category</button>
+                        </td>
+    
+                    </tr>
+                    </ng-container>
+                <ng-container class="element" *ngFor="let category of categories;let index = index;">
+                    <tr>
+                        <td class="uneditable">
+                            <div class="cell" ngDefaultControl [(ngModel)]="categories[index].id">
+                                {{category.id}}
+                            </div>
+                        </td>
+                        <td class="editable">
+                            <input class="editable_cell" type="text" id="categoryName" name="name" ngDefaultControl [(ngModel)]="categories[index].name">
+                        </td>
+                        <td class="editable">
+                            <input class="editable_cell" type="text" id="categoryName" name="name" ngDefaultControl [(ngModel)]="categories[index].description">
+                        </td>
+                        <td>
+                            <button (click)="updateCategory(categories[index])">Update</button>
+                        </td>
+                        <td>
+                            <button class="button active" (click)="deleteCategory(category.id)">Delete</button>
+                        </td>
+
+                    </tr>
+                </ng-container>
+                
+            </table>
         </div>
     </div>
 </div>

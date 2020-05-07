@@ -44,6 +44,31 @@ export class RestapiService {
     return this.http.put('https://paint-my-site-api.herokuapp.com/user', user, {headers});
   }
 
+  public getCategories() {
+    return this.http.get<Category[]>('https://paint-my-site-api.herokuapp.com/categories');
+  }
+  public getProjects() {
+    return this.http.get<Project[]>('https://paint-my-site-api.herokuapp.com/projects');
+  }
+  public getPhotos() {
+    return this.http.get<Photo[]>('https://paint-my-site-api.herokuapp.com/photos');
+  }
+
+  public createCategory(category: Category) {
+    const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(this.storage.get('username')+":"+this.storage.get('password'))});
+    return this.http.post('https://paint-my-site-api.herokuapp.com/categories', category, {headers});
+  }
+
+  public updateCategory(category: Category) {
+    const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(this.storage.get('username')+":"+this.storage.get('password'))});
+    return this.http.put('https://paint-my-site-api.herokuapp.com/categories/' + category.id, category, {headers});
+  }
+
+  public deleteCategory(id: number) {
+    const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(this.storage.get('username')+":"+this.storage.get('password'))});
+    return this.http.delete('https://paint-my-site-api.herokuapp.com/categories/' + id, {headers});
+  }
+
   /*
   const currentTodoList = this.storage.get(STORAGE_KEY);
         
@@ -63,4 +88,25 @@ interface User {
   phoneNumber: string;
   email: string;
   profilePictureUrl: string;
+}
+interface Category {
+  id: number;
+  name: string;
+  description: string;
+  photoUrl: string;
+  projects: Project[];
+}
+interface Project {
+id: number;
+name: string;
+description: string;
+photos: Photo[];
+categoryId: number;
+}
+
+interface Photo {
+id: number;
+url: string;
+orderInProject: number;
+projectId: number;
 }
