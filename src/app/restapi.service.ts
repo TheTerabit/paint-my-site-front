@@ -1,0 +1,47 @@
+import { Injectable, Inject } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { LOCAL_STORAGE, StorageService } from 'ngx-webstorage-service';
+import {Router} from '@angular/router';
+import { Observable, throwError } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class RestapiService {
+
+  constructor(private http: HttpClient, @Inject(LOCAL_STORAGE) private storage: StorageService, private router: Router) { }
+
+  public setCredentials(username: string, password: string) {
+    this.storage.set('username', username);
+    this.storage.set('password', password);
+    console.log(this.storage.get('username'));
+    console.log(this.storage.get('password'));
+  }
+
+  public login(username: string, password: string): boolean {
+    console.log(username, password);
+    const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username+":"+password)});
+    this.http.post<Response>('https://paint-my-site-api.herokuapp.com/user', null, {headers}).subscribe(data =>
+    {
+      this.storage.set('logged', 'yes');
+      this.router.navigate(['dashboard']);
+    },
+    error =>  {
+      console.log('oops', error);
+      this.storage.set('logged', 'no');
+      this.router.navigate(['login']);
+
+    }
+    );
+    return true;
+  }
+  /*
+  const currentTodoList = this.storage.get(STORAGE_KEY);
+        
+  this.storage.set(STORAGE_KEY, currentTodoList);
+
+  */
+}
+interface Response {
+  login: string;
+}

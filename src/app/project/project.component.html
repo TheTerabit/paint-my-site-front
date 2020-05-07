@@ -1,0 +1,29 @@
+<div class="page-wrap">
+    <div class="sidenav">
+        <app-side-navbar></app-side-navbar>
+    </div>
+    <div class="content">
+        <div class="project">
+            <header class="special">
+                <div class="margin"></div>
+                <div class="top">
+                    <h2>{{project?.name}}</h2>
+                    <div class="category_menu">
+                        <!--<app-category-menu (category)="showProjectsByCategory($event)"></app-category-menu>
+                        -->
+                    </div>
+                </div>
+            </header>
+
+            <h3>{{project?.description}}</h3>
+            <div class="images" *ngFor="let photo of project.photos">
+                <div class="fullImage" style="background-image: url({{photo.url}}); background-size: cover; background-position:center;">
+                </div>
+            </div>
+
+           <!-- <app-images [projects]="projects"></app-images>-->
+        </div>
+        <app-about-and-contact></app-about-and-contact>
+    </div>
+<br>    
+</div>

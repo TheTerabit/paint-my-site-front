@@ -1,0 +1,15 @@
+
+<div class="categories">
+    <div class="category" *ngIf="selected=='all'; else notAllSelected">
+        <a id="all" (click)="selectCategory('all')" class="button active">All</a>
+    </div>
+    <ng-template #notAllSelected>
+        <a id="all" (click)="selectCategory('all')" class="button">All</a>
+    </ng-template>
+    <div id={{category.name}} class="category" *ngFor="let category of categories">
+        <a *ngIf="selected==category.name; else notSelected" (click)="selectCategory(category.name)" class="button active">{{category.name}}</a>            
+        <ng-template #notSelected>
+            <a (click)="selectCategory(category.name)" class="button">{{category.name}}</a>            
+        </ng-template>
+    </div>
+</div>

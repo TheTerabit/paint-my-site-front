@@ -1,0 +1,7 @@
+<div class="images_wrapper">
+    <div class="images" *ngFor="let project of projects">
+        <a routerLink="/gallery/{{project.name}}" routerLinkActive="active">
+        <div class="media" style="background-image: url({{project?.photos[0].url}}); background-size: cover; background-position:center;">
+        </div>
+        </a>
+</div>

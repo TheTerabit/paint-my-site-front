@@ -1,0 +1,19 @@
+.images_wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-bottom: 40px;
+}
+.images {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-bottom: 40px;
+} 
+.media {
+    height: 300px;
+    width: 300px;
+}
+.media:hover {
+    opacity: 0.75;
+}

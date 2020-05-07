@@ -1,0 +1,43 @@
+<div class="bg" >
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+
+<div class="container">
+
+
+<div class="row">
+	<aside class="col-sm-4">
+
+<div class="card">
+<article class="card-body">
+<h4 class="card-title mb-4 mt-1">Sign in</h4>
+	 <form>
+    <div class="form-group">
+        <input name="" class="form-control" placeholder="Username" [(ngModel)]="username" [ngModelOptions]="{standalone: true}">
+    </div> <!-- form-group// -->
+    <div class="form-group">
+        <input class="form-control" placeholder="******" type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
+    </div> <!-- form-group// --> 
+    <div class="form-group"> 
+    </div> <!-- form-group// -->  
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block" (click)="setCredentials()"> Login  </button>
+    </div> <!-- form-group// -->                                                           
+</form>
+</article>
+</div> <!-- card.// -->
+
+	</aside> <!-- col.// -->
+	<aside class="col-sm-4">
+
+	</aside> <!-- col.// -->
+</div> <!-- row.// -->
+
+</div> 
+<!--container end.//-->
+</div>
