@@ -5,14 +5,15 @@
     <div class="content">
         <div class="gallery">
             <header class="special">
-                <div class="margin"></div>
+                <div class="margin"><h2>Gallery</h2></div>
                 <div class="top">
-                    <h2>Gallery</h2>
+                    
                     <div class="category_menu">
                         <app-category-menu (category)="showProjectsByCategory($event)"></app-category-menu>
                     </div>
                 </div>
             </header>
+            <div class="images_container"></div>
             <app-images [projects]="projects"></app-images>
         </div>
         <app-about-and-contact></app-about-and-contact>

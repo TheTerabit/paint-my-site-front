@@ -17,19 +17,12 @@ export class DashboardComponent implements OnInit {
   
   logged: boolean = false;
   changedUser: User;
-  photos: Photo[];
+  
 
   constructor(private service: RestapiService,  @Inject(LOCAL_STORAGE) private storage: StorageService, private router: Router) { }
 
   ngOnInit(): void {
-    if(this.storage.get('logged') !='yes')
-      this.router.navigate(['login']);
-    else {
-      this.service.getPhotos().subscribe(data => {
-        this.photos = data;
-      });
-
-    }
+    
   }
 
 

@@ -1,0 +1,63 @@
+<div class="photo_settings">
+    <h3>Photos settings</h3>
+    <table>
+        <ng-container>
+            <tr>
+                <td class="uneditable">
+                    <div class="cell">
+                        ID
+                    </div>
+                </td>
+                <td class="project_name">
+                    <input class="editable_cell" type="text" id="newCategoryName" name="newName" ngDefaultControl [(ngModel)]="newPhoto.url" placeholder="Photo URL">
+                </td>
+                <td class="project_category_id">
+                    <input class="editable_cell" type="text" id="newProjectCategoryId" name="newId" ngDefaultControl [(ngModel)]="newPhoto.orderInProject" placeholder="Order">
+                </td>
+                <td class="editable">
+                    <input class="editable_cell" type="text" id="newCategoryDescription" name="newDescription" ngDefaultControl [(ngModel)]="newPhoto.projectId" placeholder="Project ID">
+                </td>
+                <td class="uneditable">
+                    <div class="cell">
+                        Display
+                    </div>
+                </td>
+                <td>
+                    <button (click)="createPhoto(newPhoto)">Add new photo</button>
+                </td>
+
+            </tr>
+            </ng-container>
+        <ng-container class="element" *ngFor="let photo of photos;let index = index;">
+            <tr>
+                <td class="uneditable">
+                    <div class="cell" ngDefaultControl [(ngModel)]="photos[index].id">
+                        {{photo.id}}
+                    </div>
+                </td>
+                <td class="project_name">
+                    <input class="editable_cell" type="text" id="categoryName" name="name" ngDefaultControl [(ngModel)]="photos[index].url">
+                </td>
+                <td class="project_category_id">
+                    <input class="editable_cell" type="text" id="categoryName" name="name" ngDefaultControl [(ngModel)]="photos[index].orderInProject">
+                </td>
+                <td class="editable">
+                    <input class="editable_cell" type="text" id="categoryName" name="name" ngDefaultControl [(ngModel)]="photos[index].projectId">
+                </td>
+                <td class="image_display">
+                    <div class="cell" ngDefaultControl [(ngModel)]="photos[index].id">
+                        <img src={{photo.url}} width="100px">
+                    </div>
+                </td>
+                <td>
+                    <button (click)="updatePhoto(photos[index])">Update</button>
+                </td>
+                <td>
+                    <button class="button active" (click)="deletePhoto(photo.id)">Delete</button>
+                </td>
+
+            </tr>
+        </ng-container>
+        
+    </table>
+</div>

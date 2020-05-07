@@ -23,6 +23,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CategorySettingsComponent } from './category-settings/category-settings.component';
 import { UserSettingsComponent } from './user-settings/user-settings.component';
 import { ProjectSettingsComponent } from './project-settings/project-settings.component';
+import { PhotoSettingsComponent } from './photo-settings/photo-settings.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ProjectSettingsComponent } from './project-settings/project-settings.co
     DashboardComponent,
     CategorySettingsComponent,
     UserSettingsComponent,
-    ProjectSettingsComponent
+    ProjectSettingsComponent,
+    PhotoSettingsComponent
   ],
   imports: [
     StorageServiceModule,

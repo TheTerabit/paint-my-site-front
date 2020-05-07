@@ -84,6 +84,21 @@ export class RestapiService {
     const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(this.storage.get('username')+":"+this.storage.get('password'))});
     return this.http.delete('https://paint-my-site-api.herokuapp.com/projects/' + id, {headers});
   }
+
+  public createPhoto(photo: Photo) {
+    const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(this.storage.get('username')+":"+this.storage.get('password'))});
+    return this.http.post('https://paint-my-site-api.herokuapp.com/photos', photo, {headers});
+  }
+
+  public updatePhoto(photo: Photo) {
+    const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(this.storage.get('username')+":"+this.storage.get('password'))});
+    return this.http.put('https://paint-my-site-api.herokuapp.com/photos/' + photo.id, photo, {headers});
+  }
+
+  public deletePhoto(id: number) {
+    const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(this.storage.get('username')+":"+this.storage.get('password'))});
+    return this.http.delete('https://paint-my-site-api.herokuapp.com/photos/' + id, {headers});
+  }
   
 
   /*
