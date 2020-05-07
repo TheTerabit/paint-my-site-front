@@ -17,7 +17,6 @@ export class DashboardComponent implements OnInit {
   
   logged: boolean = false;
   changedUser: User;
-  projects: Project[];
   photos: Photo[];
 
   constructor(private service: RestapiService,  @Inject(LOCAL_STORAGE) private storage: StorageService, private router: Router) { }
@@ -26,10 +25,6 @@ export class DashboardComponent implements OnInit {
     if(this.storage.get('logged') !='yes')
       this.router.navigate(['login']);
     else {
-      this.service.getProjects().subscribe(data => {
-        this.projects = data;
-      });
-
       this.service.getPhotos().subscribe(data => {
         this.photos = data;
       });

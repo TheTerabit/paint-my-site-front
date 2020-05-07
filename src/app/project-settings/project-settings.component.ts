@@ -4,63 +4,59 @@ import { LOCAL_STORAGE, StorageService } from 'ngx-webstorage-service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-category-settings',
-  templateUrl: './category-settings.component.html',
-  styleUrls: ['./category-settings.component.css']
+  selector: 'app-project-settings',
+  templateUrl: './project-settings.component.html',
+  styleUrls: ['./project-settings.component.css']
 })
-export class CategorySettingsComponent implements OnInit {
+export class ProjectSettingsComponent implements OnInit {
 
-  newCategory: NewCategory = new NewCategory();
-  categories: Category[];
-
+  projects: Project[];
+  newProject: NewProject = new NewProject();
 
   constructor(private service: RestapiService,  @Inject(LOCAL_STORAGE) private storage: StorageService, private router: Router) { }
 
-
   ngOnInit(): void {
+    
     if(this.storage.get('logged') !='yes')
       this.router.navigate(['login']);
     else {
-      this.service.getCategories().subscribe(data => {
-        this.categories = data;
-      });
+      this.getProjects();
     }
   }
+
   
-  getCategories() {
-    this.service.getCategories().subscribe(data => {
-      this.categories = data;
-      this.newCategory = new NewCategory();
+  getProjects() {
+    this.service.getProjects().subscribe(data => {
+      this.projects = data;
+      this.newProject = new NewProject();
     });
   }
 
-  createCategory(category: Category) {
-    console.log(category);
-    this.service.createCategory(category).subscribe(data =>
+  createProject(project: Project){
+    this.service.createProject(project).subscribe(data =>
       {
         console.log("success");
-        this.getCategories();
+        this.getProjects();
       });
   }
 
-  updateCategory(category: Category) {
-    this.service.updateCategory(category).subscribe(data =>
+  updateProject(project: Project){
+    this.service.updateProject(project).subscribe(data =>
       {
         console.log("success");
-        this.getCategories();
+        this.getProjects();
       });
   }
-  deleteCategory(id: number) {
-    this.service.deleteCategory(id).subscribe(error =>
+
+  deleteProject(id: number) {
+    this.service.deleteProject(id).subscribe(error =>
       {
         console.log(error);
-        this.getCategories();
+        this.getProjects();
       });
   }
 
-
 }
-
 
 class User {
   name: string;
@@ -83,13 +79,19 @@ class NewCategory {
   description: string;
   photoUrl: string;
 }
-interface Project {
+class Project {
 id: number;
 name: string;
 description: string;
 photos: Photo[];
 categoryId: number;
 }
+
+class NewProject {
+  name: string;
+  description: string;
+  categoryId: number;
+  }
 
 interface Photo {
 id: number;

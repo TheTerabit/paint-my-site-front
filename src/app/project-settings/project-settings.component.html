@@ -1,0 +1,53 @@
+<div class="project_settings">
+    <h3>Projects settings</h3>
+    <table>
+        <ng-container>
+            <tr>
+                <td class="uneditable">
+                    <div class="cell">
+                        ID
+                    </div>
+                </td>
+                <td class="project_name">
+                    <input class="editable_cell" type="text" id="newCategoryName" name="newName" ngDefaultControl [(ngModel)]="newProject.name" placeholder="Project name">
+                </td>
+                <td class="project_category_id">
+                    <input class="editable_cell" type="text" id="newProjectCategoryId" name="newId" ngDefaultControl [(ngModel)]="newProject.categoryId" placeholder="Category ID">
+                </td>
+                <td class="editable">
+                    <input class="editable_cell" type="text" id="newCategoryDescription" name="newDescription" ngDefaultControl [(ngModel)]="newProject.description" placeholder="Project description">
+                </td>
+                <td>
+                    <button (click)="createProject(newProject)">Create new project</button>
+                </td>
+
+            </tr>
+            </ng-container>
+        <ng-container class="element" *ngFor="let project of projects;let index = index;">
+            <tr>
+                <td class="uneditable">
+                    <div class="cell" ngDefaultControl [(ngModel)]="projects[index].id">
+                        {{project.id}}
+                    </div>
+                </td>
+                <td class="project_name">
+                    <input class="editable_cell" type="text" id="categoryName" name="name" ngDefaultControl [(ngModel)]="projects[index].name">
+                </td>
+                <td class="project_category_id">
+                    <input class="editable_cell" type="text" id="categoryName" name="name" ngDefaultControl [(ngModel)]="projects[index].categoryId">
+                </td>
+                <td class="editable">
+                    <input class="editable_cell" type="text" id="categoryName" name="name" ngDefaultControl [(ngModel)]="projects[index].description">
+                </td>
+                <td>
+                    <button (click)="updateProject(projects[index])">Update</button>
+                </td>
+                <td>
+                    <button class="button active" (click)="deleteProject(project.id)">Delete</button>
+                </td>
+
+            </tr>
+        </ng-container>
+        
+    </table>
+</div>

@@ -69,6 +69,23 @@ export class RestapiService {
     return this.http.delete('https://paint-my-site-api.herokuapp.com/categories/' + id, {headers});
   }
 
+  
+  public createProject(project: Project) {
+    const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(this.storage.get('username')+":"+this.storage.get('password'))});
+    return this.http.post('https://paint-my-site-api.herokuapp.com/projects', project, {headers});
+  }
+
+  public updateProject(project: Project) {
+    const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(this.storage.get('username')+":"+this.storage.get('password'))});
+    return this.http.put('https://paint-my-site-api.herokuapp.com/projects/' + project.id, project, {headers});
+  }
+
+  public deleteProject(id: number) {
+    const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(this.storage.get('username')+":"+this.storage.get('password'))});
+    return this.http.delete('https://paint-my-site-api.herokuapp.com/projects/' + id, {headers});
+  }
+  
+
   /*
   const currentTodoList = this.storage.get(STORAGE_KEY);
         
