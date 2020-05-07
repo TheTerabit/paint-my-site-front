@@ -43,52 +43,6 @@
                 <img src={{user.profilePictureUrl}} width="500px">
             </div>
         </div>
-        <div class="category_settings">
-            <h3>Category settings</h3>
-            <table>
-                <ng-container>
-                    <tr>
-                        <td class="uneditable">
-                            <div class="cell">
-                                ID
-                            </div>
-                        </td>
-                        <td class="editable">
-                            <input class="editable_cell" type="text" id="newCategoryName" name="newName" required ngDefaultControl [(ngModel)]="newCategory.name" placeholder="Category name">
-                        </td>
-                        <td class="editable">
-                            <input class="editable_cell" type="text" id="newCategoryDescription" name="newDescription" ngDefaultControl [(ngModel)]="newCategory.description" placeholder="Category description">
-                        </td>
-                        <td>
-                            <button (click)="createCategory(newCategory)">Create new category</button>
-                        </td>
-    
-                    </tr>
-                    </ng-container>
-                <ng-container class="element" *ngFor="let category of categories;let index = index;">
-                    <tr>
-                        <td class="uneditable">
-                            <div class="cell" ngDefaultControl [(ngModel)]="categories[index].id">
-                                {{category.id}}
-                            </div>
-                        </td>
-                        <td class="editable">
-                            <input class="editable_cell" type="text" id="categoryName" name="name" ngDefaultControl [(ngModel)]="categories[index].name">
-                        </td>
-                        <td class="editable">
-                            <input class="editable_cell" type="text" id="categoryName" name="name" ngDefaultControl [(ngModel)]="categories[index].description">
-                        </td>
-                        <td>
-                            <button (click)="updateCategory(categories[index])">Update</button>
-                        </td>
-                        <td>
-                            <button class="button active" (click)="deleteCategory(category.id)">Delete</button>
-                        </td>
-
-                    </tr>
-                </ng-container>
-                
-            </table>
-        </div>
+        <app-category-settings></app-category-settings>
     </div>
 </div>

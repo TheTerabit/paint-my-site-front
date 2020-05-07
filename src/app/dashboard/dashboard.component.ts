@@ -13,11 +13,10 @@ export class DashboardComponent implements OnInit {
 
   @Input()
   current: string = "dashboard";
-  newCategory: NewCategory = new NewCategory();
+  
   user: User = new User();
   logged: boolean = false;
   changedUser: User;
-  categories: Category[];
   projects: Project[];
   photos: Photo[];
 
@@ -29,10 +28,6 @@ export class DashboardComponent implements OnInit {
     else {
       this.service.getUser().subscribe(data => {
         this.user = data;
-      });
-
-      this.service.getCategories().subscribe(data => {
-        this.categories = data;
       });
 
       this.service.getProjects().subscribe(data => {
@@ -49,39 +44,6 @@ export class DashboardComponent implements OnInit {
     this.service.updateUser(this.user).subscribe(data =>
       {
         console.log("success");
-      });
-  }
-
-  getCategories() {
-    this.service.getCategories().subscribe(data => {
-      this.categories = data;
-      this.newCategory = new NewCategory();
-    });
-  }
-
-  createCategory(category: Category) {
-    category.id=null;
-    category.projects=null;
-    console.log(category);
-    this.service.createCategory(category).subscribe(data =>
-      {
-        console.log("success");
-        this.getCategories();
-      });
-  }
-
-  updateCategory(category: Category) {
-    this.service.updateCategory(category).subscribe(data =>
-      {
-        console.log("success");
-        this.getCategories();
-      });
-  }
-  deleteCategory(id: number) {
-    this.service.deleteCategory(id).subscribe(error =>
-      {
-        console.log(error);
-        this.getCategories();
       });
   }
 

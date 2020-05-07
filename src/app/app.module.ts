@@ -20,6 +20,7 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { StorageServiceModule } from 'ngx-webstorage-service';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { CategorySettingsComponent } from './category-settings/category-settings.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     CategoryMenuComponent,
     ProjectComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    CategorySettingsComponent
   ],
   imports: [
     StorageServiceModule,
