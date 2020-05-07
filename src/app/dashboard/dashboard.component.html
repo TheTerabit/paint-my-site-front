@@ -4,45 +4,7 @@
     </div>
     <div class="dashboard">
         <div class="margin"><div class="caption"> Dashboard</div></div>
-        <div class = "user_settings">
-            <h3>User settings</h3>
-            <div class="form_image_container">
-                <form id="user_form">
-                    <div class="row"> 
-                        <label for="fname">Name: </label>
-                        <input type="text" id="fname" name="fname" [(ngModel)]="user.name">
-                    </div>
-                    <div class="row">
-                        <label for="lname">Surname: </label>
-                        <input type="text" id="lname" name="lname" [(ngModel)]="user.surname">
-                    </div>
-                    <div class="row">
-                        <label for="lname">Job title: </label>
-                        <input type="text" id="job" name="job" [(ngModel)]="user.jobTitle">
-                    </div>
-                    <div class="row">
-                        <label for="lname">E-mail: </label>
-                        <input type="text" id="email" name="email" [(ngModel)]="user.email">
-                    </div>
-                    <div class="row">
-                        <label for="lname">Phone number: </label>
-                        <input type="text" id="phone" name="phone" [(ngModel)]="user.phoneNumber">
-                    </div>
-                    <div class="row">
-                        <label for="lname">Profile picture url: </label>
-                        <input type="text" id="profile" name="profile" [(ngModel)]="user.profilePictureUrl">
-                    </div>
-                    <div class="row">
-                        <label for="lname">About me: </label>
-                        <textarea name="comment" form="user_form" [(ngModel)]="user.aboutMe"></textarea>
-                    </div>
-                    <div class="row">
-                        <input class="update_user_button" type="submit" value="Update personal data" (click)="updateUser()">
-                    </div>
-                </form>
-                <img src={{user.profilePictureUrl}} width="500px">
-            </div>
-        </div>
+        <app-user-settings></app-user-settings>
         <app-category-settings></app-category-settings>
     </div>
 </div>

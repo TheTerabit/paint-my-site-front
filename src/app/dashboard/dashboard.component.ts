@@ -14,7 +14,7 @@ export class DashboardComponent implements OnInit {
   @Input()
   current: string = "dashboard";
   
-  user: User = new User();
+  
   logged: boolean = false;
   changedUser: User;
   projects: Project[];
@@ -26,10 +26,6 @@ export class DashboardComponent implements OnInit {
     if(this.storage.get('logged') !='yes')
       this.router.navigate(['login']);
     else {
-      this.service.getUser().subscribe(data => {
-        this.user = data;
-      });
-
       this.service.getProjects().subscribe(data => {
         this.projects = data;
       });
@@ -39,12 +35,6 @@ export class DashboardComponent implements OnInit {
       });
 
     }
-  }
-  updateUser() {
-    this.service.updateUser(this.user).subscribe(data =>
-      {
-        console.log("success");
-      });
   }
 
 

@@ -21,6 +21,7 @@ import { LoginComponent } from './login/login.component';
 import { StorageServiceModule } from 'ngx-webstorage-service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CategorySettingsComponent } from './category-settings/category-settings.component';
+import { UserSettingsComponent } from './user-settings/user-settings.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { CategorySettingsComponent } from './category-settings/category-settings
     ProjectComponent,
     LoginComponent,
     DashboardComponent,
-    CategorySettingsComponent
+    CategorySettingsComponent,
+    UserSettingsComponent
   ],
   imports: [
     StorageServiceModule,
