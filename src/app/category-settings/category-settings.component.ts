@@ -79,9 +79,11 @@ class Category {
   projects: Project[];
 }
 class NewCategory {
+  id: number;
   name: string;
   description: string;
   photoUrl: string;
+  projects: Project[];
 }
 interface Project {
 id: number;

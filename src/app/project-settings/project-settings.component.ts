@@ -88,9 +88,11 @@ categoryId: number;
 }
 
 class NewProject {
-  name: string;
-  description: string;
-  categoryId: number;
+  id: number;
+name: string;
+description: string;
+photos: Photo[];
+categoryId: number;
   }
 
 interface Photo {

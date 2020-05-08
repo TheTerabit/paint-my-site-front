@@ -64,6 +64,7 @@ projectId: number;
 }
 
 class NewPhoto {
+  id: number;
   url: string;
   orderInProject: number;
   projectId: number;
