@@ -12,7 +12,7 @@ export class WhatsNewComponent implements OnInit {
 
   constructor(private http: HttpClient) {
     this.http.get<Project[]>('https://paint-my-site-api.herokuapp.com/projects').subscribe(data => {
-      this.projects = data.slice(0,4);
+      this.projects = data.reverse().slice(0,4);
       console.log(this.projects);
       })
      }

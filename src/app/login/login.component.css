@@ -11,6 +11,11 @@
 .container {
     padding: 100px;
 }
+
+button {
+    width: 100%;
+}
+
 /*
 ::ng-deep body {
     background-image: url("https://st3.depositphotos.com/13626284/18556/v/600/depositphotos_185560798-stock-video-colorful-blur-background-loop-colors.jpg") !important;

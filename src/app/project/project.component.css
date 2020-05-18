@@ -64,6 +64,7 @@ h3 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    align-self: center;
     width: 1000px;
 }
 
@@ -77,4 +78,11 @@ h3 {
     flex-direction: row;
     flex-wrap: wrap;
     padding-bottom: 40px;
+}
+
+.caption {
+    font-size: 18pt;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-left: 20px;
 }

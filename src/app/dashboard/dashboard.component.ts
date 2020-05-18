@@ -25,6 +25,9 @@ export class DashboardComponent implements OnInit {
     
   }
 
+  logout() {
+    this.service.login("", "");
+  }
 
 
 }

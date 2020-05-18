@@ -26,8 +26,13 @@
     <div class="form-group"> 
     </div> <!-- form-group// -->  
     <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block" (click)="setCredentials()"> Login  </button>
-    </div> <!-- form-group// -->                                                           
+        <div class="button_container">
+        <button type="submit" class="button" (click)="setCredentials()"> Login  </button>
+    </div>
+    </div> <!-- form-group// -->
+    <div class="form-group">
+        <button type="submit" class="button active" routerLink="/" routerLinkActive="active"> Back </button>
+    </div> <!-- form-group// -->                                                              
 </form>
 </article>
 </div> <!-- card.// -->

@@ -129,3 +129,7 @@ tr {
     align-content: stretch;
     max-width: 300px;
 }
+
+button {
+    margin: 20px
+}
