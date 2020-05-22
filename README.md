@@ -1,6 +1,6 @@
 # PaintMySite
 
-Customizable personal website for architects, photographers, graphic designers, etc.
+Customizable personal website for architects, photographers, graphic designers, etc. The owner can change his personal data, and manage his graphical projects with category and desription in the gellery page. 
 
 ## Available here:
 ### https://paint-my-site.herokuapp.com/
