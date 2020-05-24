@@ -11,7 +11,7 @@ export class WhatsNewComponent implements OnInit {
   projects: Project[];
 
   constructor(private http: HttpClient) {
-    this.http.get<Project[]>('https://paint-my-site-api.herokuapp.com/projects').subscribe(data => {
+    this.http.get<Project[]>('https://paint-my-site-api-deploy.herokuapp.com/projects').subscribe(data => {
       this.projects = data.reverse().slice(0,4);
       console.log(this.projects);
       })

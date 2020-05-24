@@ -13,7 +13,7 @@ export class ProjectComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private http: HttpClient) {
     let projectName = this.route.snapshot.paramMap.get('projectName');
-    this.http.get<Project[]>('https://paint-my-site-api.herokuapp.com/projects').subscribe(data => {
+    this.http.get<Project[]>('https://paint-my-site-api-deploy.herokuapp.com/projects').subscribe(data => {
       this.project = data.filter(p => p.name === projectName)[0];
       })
 }

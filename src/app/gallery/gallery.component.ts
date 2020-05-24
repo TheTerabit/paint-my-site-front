@@ -12,7 +12,7 @@ export class GalleryComponent implements OnInit {
   projects: Project[];
 
   constructor(private http: HttpClient) {
-    this.http.get<Project[]>('https://paint-my-site-api.herokuapp.com/projects').subscribe(data => {
+    this.http.get<Project[]>('https://paint-my-site-api-deploy.herokuapp.com/projects').subscribe(data => {
       this.projects = data;
       console.log(this.projects);
       })
@@ -23,12 +23,12 @@ export class GalleryComponent implements OnInit {
 
   showProjectsByCategory(categoryName: string): void {
     if (categoryName === 'all'){
-      this.http.get<Project[]>('https://paint-my-site-api.herokuapp.com/projects').subscribe(data => {
+      this.http.get<Project[]>('https://paint-my-site-api-deploy.herokuapp.com/projects').subscribe(data => {
         this.projects = data;
         })
       }
       else {
-        this.http.get<Category[]>('https://paint-my-site-api.herokuapp.com/categories').subscribe(data => {
+        this.http.get<Category[]>('https://paint-my-site-api-deploy.herokuapp.com/categories').subscribe(data => {
           this.projects = data.filter(c => c.name === categoryName)[0].projects;
         })
       }
