@@ -11,7 +11,8 @@
 
             <h3>{{project?.description}}</h3>
             <div class="images" *ngFor="let photo of project.photos">
-                <div class="fullImage" style="background-image: url({{photo.url}}); background-size: cover; background-position:center;">
+                <div class="fullImage">
+                    <img src={{photo.url}}>
                 </div>
             </div>
 
