@@ -21,7 +21,7 @@ export class RestapiService {
   public login(username: string, password: string): boolean {
     console.log(username, password);
     const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username+":"+password)});
-    this.http.post<Response>('https://paint-my-site-api-deploy.herokuapp.com/user', null, {headers}).subscribe(data =>
+    this.http.post<Response>('https://paint-my-site-api.herokuapp.com/user', null, {headers}).subscribe(data =>
     {
       this.storage.set('logged', 'yes');
       this.router.navigate(['dashboard']);
@@ -36,68 +36,68 @@ export class RestapiService {
     return true;
   }
   public getUser(): Observable<User> {
-    return this.http.get<User>('https://paint-my-site-api-deploy.herokuapp.com/user');
+    return this.http.get<User>('https://paint-my-site-api.herokuapp.com/user');
   }
 
   public updateUser(user: User) {
     const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(this.storage.get('username')+":"+this.storage.get('password'))});
-    return this.http.put('https://paint-my-site-api-deploy.herokuapp.com/user', user, {headers});
+    return this.http.put('https://paint-my-site-api.herokuapp.com/user', user, {headers});
   }
 
   public getCategories() {
-    return this.http.get<Category[]>('https://paint-my-site-api-deploy.herokuapp.com/categories');
+    return this.http.get<Category[]>('https://paint-my-site-api.herokuapp.com/categories');
   }
   public getProjects() {
-    return this.http.get<Project[]>('https://paint-my-site-api-deploy.herokuapp.com/projects');
+    return this.http.get<Project[]>('https://paint-my-site-api.herokuapp.com/projects');
   }
   public getPhotos() {
-    return this.http.get<Photo[]>('https://paint-my-site-api-deploy.herokuapp.com/photos');
+    return this.http.get<Photo[]>('https://paint-my-site-api.herokuapp.com/photos');
   }
 
   public createCategory(category: Category) {
     const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(this.storage.get('username')+":"+this.storage.get('password'))});
-    return this.http.post('https://paint-my-site-api-deploy.herokuapp.com/categories', category, {headers});
+    return this.http.post('https://paint-my-site-api.herokuapp.com/categories', category, {headers});
   }
 
   public updateCategory(category: Category) {
     const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(this.storage.get('username')+":"+this.storage.get('password'))});
-    return this.http.put('https://paint-my-site-api-deploy.herokuapp.com/categories/' + category.id, category, {headers});
+    return this.http.put('https://paint-my-site-api.herokuapp.com/categories/' + category.id, category, {headers});
   }
 
   public deleteCategory(id: number) {
     const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(this.storage.get('username')+":"+this.storage.get('password'))});
-    return this.http.delete('https://paint-my-site-api-deploy.herokuapp.com/categories/' + id, {headers});
+    return this.http.delete('https://paint-my-site-api.herokuapp.com/categories/' + id, {headers});
   }
 
   
   public createProject(project: Project) {
     const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(this.storage.get('username')+":"+this.storage.get('password'))});
-    return this.http.post('https://paint-my-site-api-deploy.herokuapp.com/projects', project, {headers});
+    return this.http.post('https://paint-my-site-api.herokuapp.com/projects', project, {headers});
   }
 
   public updateProject(project: Project) {
     const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(this.storage.get('username')+":"+this.storage.get('password'))});
-    return this.http.put('https://paint-my-site-api-deploy.herokuapp.com/projects/' + project.id, project, {headers});
+    return this.http.put('https://paint-my-site-api.herokuapp.com/projects/' + project.id, project, {headers});
   }
 
   public deleteProject(id: number) {
     const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(this.storage.get('username')+":"+this.storage.get('password'))});
-    return this.http.delete('https://paint-my-site-api-deploy.herokuapp.com/projects/' + id, {headers});
+    return this.http.delete('https://paint-my-site-api.herokuapp.com/projects/' + id, {headers});
   }
 
   public createPhoto(photo: Photo) {
     const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(this.storage.get('username')+":"+this.storage.get('password'))});
-    return this.http.post('https://paint-my-site-api-deploy.herokuapp.com/photos', photo, {headers});
+    return this.http.post('https://paint-my-site-api.herokuapp.com/photos', photo, {headers});
   }
 
   public updatePhoto(photo: Photo) {
     const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(this.storage.get('username')+":"+this.storage.get('password'))});
-    return this.http.put('https://paint-my-site-api-deploy.herokuapp.com/photos/' + photo.id, photo, {headers});
+    return this.http.put('https://paint-my-site-api.herokuapp.com/photos/' + photo.id, photo, {headers});
   }
 
   public deletePhoto(id: number) {
     const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(this.storage.get('username')+":"+this.storage.get('password'))});
-    return this.http.delete('https://paint-my-site-api-deploy.herokuapp.com/photos/' + id, {headers});
+    return this.http.delete('https://paint-my-site-api.herokuapp.com/photos/' + id, {headers});
   }
   
 

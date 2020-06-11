@@ -9,23 +9,26 @@
         </ul>
     </div>
     <div class="column">
-        <h3>Get in Touch [UNDER CONSTRUCTION]</h3>
+        <h3>Get in Touch</h3>
         <form action="#" method="post">
             <div class="field half first">
                 <label for="name">Name</label>
-                <input name="name" id="name" type="text" placeholder="Name">
+                <input name="name" id="name" type="text" placeholder="Name" ngDefaultControl [(ngModel)]="email.name">
             </div>
             <div class="field half">
                 <label for="email">Email</label>
-                <input name="email" id="email" type="email" placeholder="Email">
+                <input name="email" id="email" type="email" placeholder="Email" ngDefaultControl [(ngModel)]="email.email">
             </div>
             <div class="field">
                 <label for="message">Message</label>
-                <textarea name="message" id="message" rows="6" placeholder="Message"></textarea>
+                <textarea name="message" id="message" rows="6" placeholder="Message" ngDefaultControl [(ngModel)]="email.message"></textarea>
             </div>
+            <div class="sent_container">
             <ul class="actions">
-                <li><input value="Send Message" class="button" type="submit"></li>
+                <li><div><input value="Send Message" class="button" type="submit" (click)="sendEmail(email)"></div></li>
             </ul>
+            <div id="sent"></div>
+            </div>
         </form>
     </div>
 </section>

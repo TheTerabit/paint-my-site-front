@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class BannerComponent implements OnInit {
 
   constructor(private http: HttpClient) {
-    this.http.get<User>('https://paint-my-site-api-deploy.herokuapp.com/user').subscribe(data => {
+    this.http.get<User>('https://paint-my-site-api.herokuapp.com/user').subscribe(data => {
       this.user = data;
       })
      }

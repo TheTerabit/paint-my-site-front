@@ -14,7 +14,7 @@ export class CategoryMenuComponent implements OnInit {
   category = new EventEmitter<string>();
 
   constructor(private http: HttpClient) {
-    this.http.get<Category[]>('https://paint-my-site-api-deploy.herokuapp.com/categories').subscribe(data => {
+    this.http.get<Category[]>('https://paint-my-site-api.herokuapp.com/categories').subscribe(data => {
       this.categories = data;
       })
       this.selected='all';
